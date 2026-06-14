@@ -1,0 +1,1070 @@
+[
+  {
+    "screenId": "5793642043ff4682828c4b0fedf17c80",
+    "screenTitle": "Empty and Error Recovery - ModuleStack Canary Replay",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 193
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 196
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 199
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 202
+      },
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 240
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 244
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 248
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 252
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 256
+      },
+      {
+        "type": "link",
+        "label": "Docs",
+        "href": "#",
+        "line": 266
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 270
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 208
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 212
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 218
+      },
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 262
+      },
+      {
+        "type": "button",
+        "label": "Retry Connection",
+        "line": 304
+      },
+      {
+        "type": "button",
+        "label": "Create Manual Record",
+        "line": 308
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters &amp; Reset View",
+        "line": 314
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 193
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 196
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 199
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 202
+      },
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 240
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 244
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 248
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 252
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 256
+      },
+      {
+        "type": "link",
+        "label": "Docs",
+        "href": "#",
+        "line": 266
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 270
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 208
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 212
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 218
+      },
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 262
+      },
+      {
+        "type": "button",
+        "label": "Retry Connection",
+        "line": 304
+      },
+      {
+        "type": "button",
+        "label": "Create Manual Record",
+        "line": 308
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters &amp; Reset View",
+        "line": 314
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 19,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "7a0604e8b0314301bd3bbd4d00023c80",
+    "screenTitle": "Record Editor - ModuleStack Canary Replay",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 126
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 134
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "description",
+        "href": "#",
+        "line": 153
+      },
+      {
+        "type": "link",
+        "label": "support_agent",
+        "href": "#",
+        "line": 156
+      },
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 170
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 171
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 172
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 183
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 184
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 187
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 264
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 275
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 285
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 298
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 301
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 180
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 221
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 229
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 240
+      },
+      {
+        "type": "input",
+        "label": "textarea",
+        "inputType": "textarea",
+        "line": 252
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 126
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 134
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "description",
+        "href": "#",
+        "line": 153
+      },
+      {
+        "type": "link",
+        "label": "support_agent",
+        "href": "#",
+        "line": 156
+      },
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 170
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 171
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 172
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 173
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 183
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 184
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 187
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 264
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 275
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 285
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 298
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 301
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 180
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 221
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 229
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 240
+      },
+      {
+        "type": "input",
+        "label": "textarea",
+        "inputType": "textarea",
+        "line": 252
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 26,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "0873f0fa23fb4a93a9c63777d52aa458",
+    "screenTitle": "Insights - ModuleStack Canary Replay",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 122
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 126
+      },
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 160
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 164
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 168
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 172
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 176
+      },
+      {
+        "type": "link",
+        "label": "Docs",
+        "href": "#",
+        "line": 187
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 133
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 136
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 139
+      },
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "Filter",
+        "line": 207
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 210
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 122
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 126
+      },
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 160
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 164
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 168
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 172
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 176
+      },
+      {
+        "type": "link",
+        "label": "Docs",
+        "href": "#",
+        "line": 187
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 190
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 133
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 136
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 139
+      },
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "Filter",
+        "line": 207
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 210
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 19,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "d7341793a53c4b39a1c409ed107d451c",
+    "screenTitle": "Record Operations - ModuleStack Canary Replay",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 192
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 196
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 200
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 204
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 208
+      },
+      {
+        "type": "link",
+        "label": "Docs",
+        "href": "#",
+        "line": 222
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 226
+      },
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 243
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 244
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 245
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 246
+      },
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 257
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 262
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 263
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 264
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 277
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 281
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 446
+      },
+      {
+        "type": "button",
+        "label": "View Logs",
+        "line": 524
+      },
+      {
+        "type": "button",
+        "label": "Retry",
+        "line": 527
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 254
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 337
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 342
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 347
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Web",
+        "href": "#",
+        "line": 192
+      },
+      {
+        "type": "link",
+        "label": "Game",
+        "href": "#",
+        "line": 196
+      },
+      {
+        "type": "link",
+        "label": "Mobile",
+        "href": "#",
+        "line": 200
+      },
+      {
+        "type": "link",
+        "label": "Backend",
+        "href": "#",
+        "line": 204
+      },
+      {
+        "type": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "line": 208
+      },
+      {
+        "type": "link",
+        "label": "Docs",
+        "href": "#",
+        "line": 222
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 226
+      },
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "line": 243
+      },
+      {
+        "type": "link",
+        "label": "History",
+        "href": "#",
+        "line": 244
+      },
+      {
+        "type": "link",
+        "label": "Alerts",
+        "href": "#",
+        "line": 245
+      },
+      {
+        "type": "link",
+        "label": "Settings",
+        "href": "#",
+        "line": 246
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "System Scan",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 257
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 262
+      },
+      {
+        "type": "button",
+        "label": "help_outline",
+        "line": 263
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 264
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 277
+      },
+      {
+        "type": "button",
+        "label": "Create Replay",
+        "line": 281
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 446
+      },
+      {
+        "type": "button",
+        "label": "View Logs",
+        "line": 524
+      },
+      {
+        "type": "button",
+        "label": "Retry",
+        "line": 527
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 254
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 337
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 342
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 347
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 25,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
