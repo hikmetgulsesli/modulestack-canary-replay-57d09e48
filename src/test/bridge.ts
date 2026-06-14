@@ -15,6 +15,9 @@ declare global {
 }
 
 export function exposeApp(store: Store): void {
+  if (typeof window === 'undefined') {
+    return;
+  }
   window.app = {
     get activeScreen() {
       return store.getState().activeScreen;

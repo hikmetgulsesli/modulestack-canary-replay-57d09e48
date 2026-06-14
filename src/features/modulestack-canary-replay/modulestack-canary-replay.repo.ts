@@ -17,11 +17,19 @@ export function load(): PersistedSnapshot | null {
     return null;
   }
   try {
-    const parsed = JSON.parse(raw) as PersistedSnapshot;
-    if (!Array.isArray(parsed.records) || !Array.isArray(parsed.activityEvents)) {
+    const parsed = JSON.parse(raw);
+    if (
+      !parsed ||
+      typeof parsed !== 'object' ||
+      !Array.isArray(parsed.records) ||
+      !Array.isArray(parsed.activityEvents) ||
+      !parsed.preferences ||
+      typeof parsed.preferences !== 'object' ||
+      typeof parsed.preferences.defaultModule !== 'string'
+    ) {
       return null;
     }
-    return parsed;
+    return parsed as PersistedSnapshot;
   } catch {
     return null;
   }

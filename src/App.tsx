@@ -102,14 +102,13 @@ export default function App() {
       'help-outline-3': () => setPanel('help'),
       'account-circle-4': () => setPanel('account'),
       'create-replay-5': () => setScreen('record-editor'),
-      'add-6': () => dispatch({ type: 'CREATE_RECORD', record: buildRecord(state) }),
-      'delete-7': () => state.selectedRecordId && dispatch({ type: 'DELETE_RECORD', id: state.selectedRecordId }),
-      'delete-8': () => state.selectedRecordId && dispatch({ type: 'DELETE_RECORD', id: state.selectedRecordId }),
+      'add-6': () => {}, // Hook addition is not implemented in the store
+      'delete-7': () => {}, // Hook deletion is not implemented in the store
+      'delete-8': () => {}, // Hook deletion is not implemented in the store
       'cancel-9': () => setScreen('record-operations'),
       'save-record-10': () => {
-        const record = state.selectedRecordId
-          ? { ...buildRecord(state), id: state.selectedRecordId }
-          : buildRecord(state);
+        const existing = state.records.find((r) => r.id === state.selectedRecordId);
+        const record = existing ? { ...existing } : buildRecord(state);
         dispatch({ type: 'SAVE_RECORD', record });
         setScreen('record-operations');
       },

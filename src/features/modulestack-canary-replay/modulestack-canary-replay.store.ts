@@ -76,7 +76,7 @@ function reducer(state: AppState, action: Action): AppState {
 
     case 'CREATE_RECORD': {
       const next = { ...state, records: [action.record, ...state.records] };
-      return addEvent(next, `Created record ${action.record.title}`);
+      return addEvent(next, createActivityEvent(`Created record ${action.record.title}`));
     }
 
     case 'SAVE_RECORD': {
@@ -89,7 +89,7 @@ function reducer(state: AppState, action: Action): AppState {
         records: nextRecords,
         selectedRecordId: action.record.id,
       };
-      return addEvent(next, `Saved record ${action.record.title}`);
+      return addEvent(next, createActivityEvent(`Saved record ${action.record.title}`));
     }
 
     case 'DELETE_RECORD': {
@@ -99,11 +99,11 @@ function reducer(state: AppState, action: Action): AppState {
         records: state.records.filter((r) => r.id !== action.id),
         selectedRecordId: state.selectedRecordId === action.id ? null : state.selectedRecordId,
       };
-      return record ? addEvent(next, `Deleted record ${record.title}`) : next;
+      return record ? addEvent(next, createActivityEvent(`Deleted record ${record.title}`)) : next;
     }
 
     case 'ADD_ACTIVITY_EVENT':
-      return addEvent(state, action.event.message, action.event.timestamp);
+      return addEvent(state, action.event);
 
     case 'RESET_FILTERS':
       return { ...state, filterQuery: '', activePanel: 'none', lastError: null };
@@ -131,12 +131,15 @@ function reducer(state: AppState, action: Action): AppState {
   }
 }
 
-function addEvent(state: AppState, message: string, timestamp = Date.now()): AppState {
-  const event: ActivityEvent = {
-    id: `evt-${timestamp}-${Math.random().toString(36).slice(2, 7)}`,
-    message,
-    timestamp,
-  };
+export function createActivityEvent(
+  message: string,
+  timestamp: number = Date.now(),
+  id: string = `evt-${timestamp}-${Math.random().toString(36).slice(2, 7)}`,
+): ActivityEvent {
+  return { id, message, timestamp };
+}
+
+function addEvent(state: AppState, event: ActivityEvent): AppState {
   return { ...state, activityEvents: [event, ...state.activityEvents].slice(0, 100) };
 }
 
@@ -152,13 +155,19 @@ export function createStore(seed: Partial<AppState> = {}): Store {
 
   const emit = () => listeners.forEach((listener) => listener());
 
-  const persist = (next: AppState) => {
+  const persist = (prev: AppState, next: AppState) => {
     if (next.storageStatus === 'ready' && !next.lastError) {
-      repo.save({
-        records: next.records,
-        activityEvents: next.activityEvents,
-        preferences: next.preferences,
-      });
+      if (
+        prev.records !== next.records ||
+        prev.activityEvents !== next.activityEvents ||
+        prev.preferences !== next.preferences
+      ) {
+        repo.save({
+          records: next.records,
+          activityEvents: next.activityEvents,
+          preferences: next.preferences,
+        });
+      }
     }
   };
 
@@ -169,9 +178,10 @@ export function createStore(seed: Partial<AppState> = {}): Store {
       return () => listeners.delete(listener);
     },
     dispatch: (action) => {
+      const prevState = state;
       state = reducer(state, action);
       emit();
-      persist(state);
+      persist(prevState, state);
     },
   };
 }
