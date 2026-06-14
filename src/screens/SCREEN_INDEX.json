@@ -1,0 +1,571 @@
+[
+  {
+    "screenId": "5793642043ff4682828c4b0fedf17c80",
+    "title": "Empty and Error Recovery - ModuleStack Canary Replay",
+    "componentName": "EmptyAndErrorRecoveryModulestackCanaryReplay",
+    "file": "src/screens/EmptyAndErrorRecoveryModulestackCanaryReplay.tsx",
+    "buttons": 8,
+    "inputs": 0,
+    "links": 11,
+    "actions": [
+      {
+        "id": "create-replay-1",
+        "kind": "button",
+        "label": "Create Replay",
+        "index": 0
+      },
+      {
+        "id": "notifications-2",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 1
+      },
+      {
+        "id": "help-outline-3",
+        "kind": "button",
+        "label": "Help Outline",
+        "index": 2
+      },
+      {
+        "id": "account-circle-4",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 3
+      },
+      {
+        "id": "system-scan-5",
+        "kind": "button",
+        "label": "System Scan",
+        "index": 4
+      },
+      {
+        "id": "retry-connection-6",
+        "kind": "button",
+        "label": "Retry Connection",
+        "index": 5
+      },
+      {
+        "id": "create-manual-record-7",
+        "kind": "button",
+        "label": "Create Manual Record",
+        "index": 6
+      },
+      {
+        "id": "clear-filters-and-reset-view-8",
+        "kind": "button",
+        "label": "Clear Filters and Reset View",
+        "index": 7
+      },
+      {
+        "id": "dashboard-1",
+        "kind": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "history-2",
+        "kind": "link",
+        "label": "History",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "alerts-3",
+        "kind": "link",
+        "label": "Alerts",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "settings-4",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "web-5",
+        "kind": "link",
+        "label": "Web",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "game-6",
+        "kind": "link",
+        "label": "Game",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "mobile-7",
+        "kind": "link",
+        "label": "Mobile",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "backend-8",
+        "kind": "link",
+        "label": "Backend",
+        "href": "#",
+        "index": 7
+      },
+      {
+        "id": "data-pipelines-9",
+        "kind": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "index": 8
+      },
+      {
+        "id": "docs-10",
+        "kind": "link",
+        "label": "Docs",
+        "href": "#",
+        "index": 9
+      },
+      {
+        "id": "support-11",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 10
+      }
+    ]
+  },
+  {
+    "screenId": "7a0604e8b0314301bd3bbd4d00023c80",
+    "title": "Record Editor - ModuleStack Canary Replay",
+    "componentName": "RecordEditorModulestackCanaryReplay",
+    "file": "src/screens/RecordEditorModulestackCanaryReplay.tsx",
+    "buttons": 10,
+    "inputs": 3,
+    "links": 11,
+    "actions": [
+      {
+        "id": "system-scan-1",
+        "kind": "button",
+        "label": "System Scan",
+        "index": 0
+      },
+      {
+        "id": "notifications-2",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 1
+      },
+      {
+        "id": "help-outline-3",
+        "kind": "button",
+        "label": "Help Outline",
+        "index": 2
+      },
+      {
+        "id": "account-circle-4",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 3
+      },
+      {
+        "id": "create-replay-5",
+        "kind": "button",
+        "label": "Create Replay",
+        "index": 4
+      },
+      {
+        "id": "add-6",
+        "kind": "button",
+        "label": "Add",
+        "index": 5
+      },
+      {
+        "id": "delete-7",
+        "kind": "button",
+        "label": "Delete",
+        "index": 6
+      },
+      {
+        "id": "delete-8",
+        "kind": "button",
+        "label": "Delete",
+        "index": 7
+      },
+      {
+        "id": "cancel-9",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 8
+      },
+      {
+        "id": "save-record-10",
+        "kind": "button",
+        "label": "Save Record",
+        "index": 9
+      },
+      {
+        "id": "web-1",
+        "kind": "link",
+        "label": "Web",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "game-2",
+        "kind": "link",
+        "label": "Game",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "mobile-3",
+        "kind": "link",
+        "label": "Mobile",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "backend-4",
+        "kind": "link",
+        "label": "Backend",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "data-pipelines-5",
+        "kind": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "description-6",
+        "kind": "link",
+        "label": "Description",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "support-agent-7",
+        "kind": "link",
+        "label": "Support Agent",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "dashboard-8",
+        "kind": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "index": 7
+      },
+      {
+        "id": "history-9",
+        "kind": "link",
+        "label": "History",
+        "href": "#",
+        "index": 8
+      },
+      {
+        "id": "alerts-10",
+        "kind": "link",
+        "label": "Alerts",
+        "href": "#",
+        "index": 9
+      },
+      {
+        "id": "settings-11",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 10
+      }
+    ]
+  },
+  {
+    "screenId": "0873f0fa23fb4a93a9c63777d52aa458",
+    "title": "Insights - ModuleStack Canary Replay",
+    "componentName": "InsightsModulestackCanaryReplay",
+    "file": "src/screens/InsightsModulestackCanaryReplay.tsx",
+    "buttons": 7,
+    "inputs": 0,
+    "links": 12,
+    "actions": [
+      {
+        "id": "notifications-1",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 0
+      },
+      {
+        "id": "help-outline-2",
+        "kind": "button",
+        "label": "Help Outline",
+        "index": 1
+      },
+      {
+        "id": "account-circle-3",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 2
+      },
+      {
+        "id": "create-replay-4",
+        "kind": "button",
+        "label": "Create Replay",
+        "index": 3
+      },
+      {
+        "id": "system-scan-5",
+        "kind": "button",
+        "label": "System Scan",
+        "index": 4
+      },
+      {
+        "id": "filter-6",
+        "kind": "button",
+        "label": "Filter",
+        "index": 5
+      },
+      {
+        "id": "export-summary-7",
+        "kind": "button",
+        "label": "Export Summary",
+        "index": 6
+      },
+      {
+        "id": "dashboard-1",
+        "kind": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "history-2",
+        "kind": "link",
+        "label": "History",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "alerts-4",
+        "kind": "link",
+        "label": "Alerts",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "settings-5",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "web-6",
+        "kind": "link",
+        "label": "Web",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "game-7",
+        "kind": "link",
+        "label": "Game",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "mobile-8",
+        "kind": "link",
+        "label": "Mobile",
+        "href": "#",
+        "index": 7
+      },
+      {
+        "id": "backend-9",
+        "kind": "link",
+        "label": "Backend",
+        "href": "#",
+        "index": 8
+      },
+      {
+        "id": "data-pipelines-10",
+        "kind": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "index": 9
+      },
+      {
+        "id": "docs-11",
+        "kind": "link",
+        "label": "Docs",
+        "href": "#",
+        "index": 10
+      },
+      {
+        "id": "support-12",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 11
+      }
+    ]
+  },
+  {
+    "screenId": "d7341793a53c4b39a1c409ed107d451c",
+    "title": "Record Operations - ModuleStack Canary Replay",
+    "componentName": "RecordOperationsModulestackCanaryReplay",
+    "file": "src/screens/RecordOperationsModulestackCanaryReplay.tsx",
+    "buttons": 10,
+    "inputs": 1,
+    "links": 11,
+    "actions": [
+      {
+        "id": "system-scan-1",
+        "kind": "button",
+        "label": "System Scan",
+        "index": 0
+      },
+      {
+        "id": "create-replay-2",
+        "kind": "button",
+        "label": "Create Replay",
+        "index": 1
+      },
+      {
+        "id": "notifications-3",
+        "kind": "button",
+        "label": "Notifications",
+        "index": 2
+      },
+      {
+        "id": "help-outline-4",
+        "kind": "button",
+        "label": "Help Outline",
+        "index": 3
+      },
+      {
+        "id": "account-circle-5",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 4
+      },
+      {
+        "id": "retry-load-6",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 5
+      },
+      {
+        "id": "create-replay-7",
+        "kind": "button",
+        "label": "Create Replay",
+        "index": 6
+      },
+      {
+        "id": "close-8",
+        "kind": "button",
+        "label": "Close",
+        "index": 7
+      },
+      {
+        "id": "view-logs-9",
+        "kind": "button",
+        "label": "View Logs",
+        "index": 8
+      },
+      {
+        "id": "retry-10",
+        "kind": "button",
+        "label": "Retry",
+        "index": 9
+      },
+      {
+        "id": "web-1",
+        "kind": "link",
+        "label": "Web",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "game-2",
+        "kind": "link",
+        "label": "Game",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "mobile-3",
+        "kind": "link",
+        "label": "Mobile",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "backend-4",
+        "kind": "link",
+        "label": "Backend",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "data-pipelines-5",
+        "kind": "link",
+        "label": "Data Pipelines",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "docs-6",
+        "kind": "link",
+        "label": "Docs",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "support-7",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 6
+      },
+      {
+        "id": "dashboard-8",
+        "kind": "link",
+        "label": "Dashboard",
+        "href": "#",
+        "index": 7
+      },
+      {
+        "id": "history-9",
+        "kind": "link",
+        "label": "History",
+        "href": "#",
+        "index": 8
+      },
+      {
+        "id": "alerts-10",
+        "kind": "link",
+        "label": "Alerts",
+        "href": "#",
+        "index": 9
+      },
+      {
+        "id": "settings-11",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 10
+      }
+    ]
+  }
+]
