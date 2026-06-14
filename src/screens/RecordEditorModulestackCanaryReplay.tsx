@@ -7,17 +7,43 @@
 // 3. Wire interactive controls through the typed actions prop
 // 4. Replace placeholder data with props/state
 
+import { useEffect, useState } from 'react';
 import { BadgeHelp, Bell, CircleAlert, CircleHelp, CircleUserRound, FileText, Gamepad2, GitBranch, Headphones, HeartPulse, Languages, Plus, Save, Search, Server, Settings2, Smartphone, Trash2, TriangleAlert } from "lucide-react";
+import type { RecordItem } from '../features/modulestack-canary-replay/modulestack-canary-replay.store';
 
 
 export type RecordEditorModulestackCanaryReplayActionId = "system-scan-1" | "notifications-2" | "help-outline-3" | "account-circle-4" | "create-replay-5" | "add-6" | "delete-7" | "delete-8" | "cancel-9" | "save-record-10" | "web-1" | "game-2" | "mobile-3" | "backend-4" | "data-pipelines-5" | "description-6" | "support-agent-7" | "dashboard-8" | "history-9" | "alerts-10" | "settings-11";
 
 export interface RecordEditorModulestackCanaryReplayProps {
   actions?: Partial<Record<RecordEditorModulestackCanaryReplayActionId, () => void>>;
+  record?: RecordItem | null;
+  onSaveRecord?: (record: RecordItem) => void;
 
 }
 
-export function RecordEditorModulestackCanaryReplay({ actions }: RecordEditorModulestackCanaryReplayProps) {
+export function RecordEditorModulestackCanaryReplay({ actions, record, onSaveRecord }: RecordEditorModulestackCanaryReplayProps) {
+  const [title, setTitle] = useState(record?.title ?? 'New replay');
+  const [module, setModule] = useState(record?.module ?? 'web');
+  const [owner, setOwner] = useState('team-finops');
+  const [notes, setNotes] = useState('In case of failure during replay, isolate the payment queue immediately. Check logs in the EU-central cluster before attempting a soft reset.');
+
+  useEffect(() => {
+    if (record) {
+      setTitle(record.title);
+      setModule(record.module);
+    }
+  }, [record?.id]);
+
+  const handleSave = () => {
+    if (!record) return;
+    onSaveRecord?.({
+      ...record,
+      title,
+      module,
+      status: record.status === 'active' ? 'active' : 'draft',
+    });
+  };
+
   return (
     <>
       {/* TopNavBar (JSON Blueprint) - Handled via Top sticky nav structure if needed, but per specs SideNav is primary. 
@@ -112,7 +138,7 @@ export function RecordEditorModulestackCanaryReplay({ actions }: RecordEditorMod
       <p className="font-body-md text-body-md text-on-surface-variant mt-xs">Configure module parameters and verification hooks.</p>
       </div>
       <div className="font-data-mono text-data-mono text-on-surface-variant">
-                              ID: <span className="text-primary">MOD-8429</span>
+                              ID: <span className="text-primary">{record?.id ?? 'NEW'}</span>
       </div>
       </div>
       {/* Form Grid */}
@@ -128,7 +154,7 @@ export function RecordEditorModulestackCanaryReplay({ actions }: RecordEditorMod
       <label className="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
                                       Module Name <span className="text-surface-tint">*</span>
       </label>
-      <input className="w-full bg-[#020617] border border-[#1E293B] text-primary font-data-mono text-data-mono p-sm rounded focus:outline-none focus:border-tertiary-fixed focus:ring-1 focus:ring-tertiary-fixed transition-colors" type="text" defaultValue="payment-gateway-v2" />
+      <input className="w-full bg-[#020617] border border-[#1E293B] text-primary font-data-mono text-data-mono p-sm rounded focus:outline-none focus:border-tertiary-fixed focus:ring-1 focus:ring-tertiary-fixed transition-colors" type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
       </div>
       {/* Ownership & Type Row */}
       <div className="grid grid-cols-2 gap-md">
@@ -136,9 +162,9 @@ export function RecordEditorModulestackCanaryReplay({ actions }: RecordEditorMod
       <label className="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
                                           Module Type <span className="text-surface-tint">*</span>
       </label>
-      <select className="w-full bg-[#020617] border border-[#1E293B] text-primary font-body-md p-sm rounded focus:outline-none focus:border-tertiary-fixed appearance-none">
+      <select className="w-full bg-[#020617] border border-[#1E293B] text-primary font-body-md p-sm rounded focus:outline-none focus:border-tertiary-fixed appearance-none" value={module} onChange={(event) => setModule(event.target.value)}>
       <option value="web">Web</option>
-      <option selected={true} value="backend">Backend</option>
+      <option value="backend">Backend</option>
       <option value="mobile">Mobile</option>
       <option value="data">Data Pipeline</option>
       </select>
@@ -147,11 +173,7 @@ export function RecordEditorModulestackCanaryReplay({ actions }: RecordEditorMod
       <label className="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
                                           Ownership Boundary <span className="text-surface-tint">*</span>
       </label>
-      <input className="w-full bg-[#020617] border border-error text-primary font-data-mono text-data-mono p-sm rounded focus:outline-none" type="text" defaultValue="team-finops" />
-      <p className="text-error font-body-md text-xs mt-xs flex items-center gap-xs">
-      <CircleAlert className="text-[12px]" aria-hidden={true} focusable="false" />
-                                          Invalid module identifier format
-                                      </p>
+      <input className="w-full bg-[#020617] border border-[#1E293B] text-primary font-data-mono text-data-mono p-sm rounded focus:outline-none focus:border-tertiary-fixed focus:ring-1 focus:ring-tertiary-fixed transition-colors" type="text" value={owner} onChange={(event) => setOwner(event.target.value)} />
       </div>
       </div>
       {/* Recovery Notes */}
@@ -159,7 +181,7 @@ export function RecordEditorModulestackCanaryReplay({ actions }: RecordEditorMod
       <label className="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
                                       Recovery Notes
                                   </label>
-      <textarea className="w-full bg-[#020617] border border-[#1E293B] text-on-surface font-body-md p-sm rounded focus:outline-none focus:border-tertiary-fixed resize-none" rows={4}>In case of failure during replay, isolate the payment queue immediately. Check logs in the EU-central cluster before attempting a soft reset.</textarea>
+      <textarea className="w-full bg-[#020617] border border-[#1E293B] text-on-surface font-body-md p-sm rounded focus:outline-none focus:border-tertiary-fixed resize-none" rows={4} value={notes} onChange={(event) => setNotes(event.target.value)} />
       </div>
       </section>
       {/* Side Panel: Hooks & Actions */}
@@ -208,7 +230,7 @@ export function RecordEditorModulestackCanaryReplay({ actions }: RecordEditorMod
       <button className="px-lg py-sm border border-outline-variant text-primary font-label-caps text-label-caps rounded hover:bg-surface-variant transition-colors" type="button" data-action-id="cancel-9" onClick={actions?.["cancel-9"]}>
                               Cancel
                           </button>
-      <button className="px-lg py-sm bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-colors flex items-center gap-xs" type="button" data-action-id="save-record-10" onClick={actions?.["save-record-10"]}>
+      <button className="px-lg py-sm bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-colors flex items-center gap-xs" type="button" data-action-id="save-record-10" onClick={handleSave}>
       <Save className="text-sm" aria-hidden={true} focusable="false" />
                               Save Record
                           </button>
