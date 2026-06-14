@@ -1,4 +1,4 @@
-import { useMemo, useSyncExternalStore } from 'react';
+import { useEffect, useMemo, useSyncExternalStore } from 'react';
 import {
   EmptyAndErrorRecoveryModulestackCanaryReplay,
   type EmptyAndErrorRecoveryModulestackCanaryReplayActionId,
@@ -124,7 +124,7 @@ export default function App() {
       'alerts-10': () => setScreen('empty-error'),
       'settings-11': () => setScreen('insights'),
     }),
-    [dispatch, state],
+    [dispatch, state.records, state.selectedRecordId],
   );
 
   const insightsActions: Partial<Record<InsightsModulestackCanaryReplayActionId, () => void>> = useMemo(
@@ -176,6 +176,22 @@ export default function App() {
     }),
     [dispatch],
   );
+
+  useEffect(() => {
+    let active = true;
+    let handle = 0;
+    const step = () => {
+      dispatch({ type: 'TICK', now: Date.now() });
+      if (active) {
+        handle = requestAnimationFrame(step);
+      }
+    };
+    handle = requestAnimationFrame(step);
+    return () => {
+      active = false;
+      cancelAnimationFrame(handle);
+    };
+  }, [dispatch]);
 
   const activeScreen = state.activeScreen;
 

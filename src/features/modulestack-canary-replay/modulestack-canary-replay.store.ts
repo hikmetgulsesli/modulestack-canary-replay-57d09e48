@@ -33,6 +33,7 @@ export interface AppState {
   lastError: string | null;
   activePanel: ActivePanel;
   filterQuery: string;
+  runtimeTick: number;
 }
 
 export type Action =
@@ -49,7 +50,8 @@ export type Action =
   | { type: 'SET_ACTIVE_PANEL'; panel: ActivePanel }
   | { type: 'SET_PREFERENCES'; preferences: Partial<Preferences> }
   | { type: 'SET_STORAGE_STATUS'; status: StorageStatus }
-  | { type: 'LOAD_STATE'; state: Partial<AppState> };
+  | { type: 'LOAD_STATE'; state: Partial<AppState> }
+  | { type: 'TICK'; now?: number };
 
 export const initialAppState: AppState = {
   activeScreen: 'record-operations',
@@ -61,6 +63,7 @@ export const initialAppState: AppState = {
   lastError: null,
   activePanel: 'none',
   filterQuery: '',
+  runtimeTick: 0,
 };
 
 function reducer(state: AppState, action: Action): AppState {
@@ -125,6 +128,9 @@ function reducer(state: AppState, action: Action): AppState {
 
     case 'LOAD_STATE':
       return { ...state, ...action.state };
+
+    case 'TICK':
+      return { ...state, runtimeTick: state.runtimeTick + 1 };
 
     default:
       return state;
