@@ -1,0 +1,46 @@
+[
+  {
+    "screenId": "5793642043ff4682828c4b0fedf17c80",
+    "title": "Empty and Error Recovery - ModuleStack Canary Replay",
+    "htmlFile": "5793642043ff4682828c4b0fedf17c80.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzhmM2E4ZWQ2N2QxMzRiZDk5OGUzNzA1ZGQ0NWM5Nzc3EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM5MzE3MDI2MzkxOTM4MzE4OTI1&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/modulestack-canary-replay-57d09e48/stitch/5793642043ff4682828c4b0fedf17c80.html",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "7a0604e8b0314301bd3bbd4d00023c80",
+    "title": "Record Editor - ModuleStack Canary Replay",
+    "htmlFile": "7a0604e8b0314301bd3bbd4d00023c80.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2I5MjVmNmIzOGNmYzRlNDk5MzdiOTM4ZDY5ZTU0OTE1EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM5MzE3MDI2MzkxOTM4MzE4OTI1&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/modulestack-canary-replay-57d09e48/stitch/7a0604e8b0314301bd3bbd4d00023c80.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "0873f0fa23fb4a93a9c63777d52aa458",
+    "title": "Insights - ModuleStack Canary Replay",
+    "htmlFile": "0873f0fa23fb4a93a9c63777d52aa458.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzgyYmE2OTlhYmM2NjRhOGFhMWE2MmQyNmZhYzZkMTFjEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM5MzE3MDI2MzkxOTM4MzE4OTI1&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/modulestack-canary-replay-57d09e48/stitch/0873f0fa23fb4a93a9c63777d52aa458.html",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "d7341793a53c4b39a1c409ed107d451c",
+    "title": "Record Operations - ModuleStack Canary Replay",
+    "htmlFile": "d7341793a53c4b39a1c409ed107d451c.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2VmYTJhOThkOWM3NTRkZTk5ZTMyYzljYmE4N2M0Y2Y4EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM5MzE3MDI2MzkxOTM4MzE4OTI1&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/modulestack-canary-replay-57d09e48/stitch/d7341793a53c4b39a1c409ed107d451c.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  }
+]

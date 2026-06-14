@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "5793642043ff4682828c4b0fedf17c80",
+    "name": "Empty and Error Recovery - ModuleStack Canary Replay",
+    "type": "game",
+    "description": "Empty and Error Recovery - ModuleStack Canary Replay screen",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "7a0604e8b0314301bd3bbd4d00023c80",
+    "name": "Record Editor - ModuleStack Canary Replay",
+    "type": "form",
+    "description": "Record Editor - ModuleStack Canary Replay screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "0873f0fa23fb4a93a9c63777d52aa458",
+    "name": "Insights - ModuleStack Canary Replay",
+    "type": "game",
+    "description": "Insights - ModuleStack Canary Replay screen",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "d7341793a53c4b39a1c409ed107d451c",
+    "name": "Record Operations - ModuleStack Canary Replay",
+    "type": "game",
+    "description": "Record Operations - ModuleStack Canary Replay screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  }
+]

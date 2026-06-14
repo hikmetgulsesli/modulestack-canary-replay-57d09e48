@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Record Editor - ModuleStack Canary Replay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#fffdff",
+                        "on-primary-container": "#736300",
+                        "tertiary-container": "#c0e6ff",
+                        "outline-variant": "#4c4733",
+                        "surface-variant": "#26364a",
+                        "secondary-fixed": "#dae2fd",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#213145",
+                        "surface": "#031427",
+                        "secondary": "#bec6e0",
+                        "on-secondary-container": "#adb4ce",
+                        "outline": "#979179",
+                        "on-tertiary-fixed": "#001e2c",
+                        "error-container": "#93000a",
+                        "tertiary": "#fefdff",
+                        "secondary-container": "#3f465c",
+                        "surface-bright": "#2a3a4f",
+                        "on-primary-fixed-variant": "#524700",
+                        "tertiary-fixed": "#c4e7ff",
+                        "primary-fixed-dim": "#e2c60f",
+                        "on-tertiary-container": "#006b91",
+                        "on-primary-fixed": "#211b00",
+                        "on-tertiary": "#00354a",
+                        "on-primary": "#393000",
+                        "primary-container": "#ffe135",
+                        "background": "#031427",
+                        "surface-container-highest": "#26364a",
+                        "inverse-surface": "#d3e4fe",
+                        "surface-container-lowest": "#000f21",
+                        "on-surface-variant": "#cec6ac",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#ffe245",
+                        "on-surface": "#d3e4fe",
+                        "surface-container-low": "#0b1c30",
+                        "on-tertiary-fixed-variant": "#004c69",
+                        "on-secondary": "#283044",
+                        "on-background": "#d3e4fe",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-tint": "#e2c60f",
+                        "surface-dim": "#031427",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-high": "#1b2b3f",
+                        "tertiary-fixed-dim": "#7bd0ff",
+                        "surface-container": "#102034",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#6d5e00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "margin": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md-mobile": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md-mobile": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #020617; } /* Level 0 Background per specs */
+        /* Custom scrollbar for form area */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: theme('colors.surface-variant'); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: theme('colors.outline'); }
+    </style>
+</head>
+<body class="text-on-background font-body-md h-screen flex overflow-hidden">
+<!-- TopNavBar (JSON Blueprint) - Handled via Top sticky nav structure if needed, but per specs SideNav is primary. 
+         Wait, TopNavBar component JSON says w-full sticky top-0. Let's include it for the top context, above the content area. -->
+<!-- SideNavBar (JSON Blueprint) -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-container border-r border-outline-variant flex flex-col py-md z-40">
+<div class="px-md mb-xl flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-fixed text-2xl">monitor_heart</span>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary">Health Monitor</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Global Status: Nominal</p>
+</div>
+</div>
+<nav class="flex-1 px-sm space-y-xs">
+<!-- Settings Active per intent (editing a record is configuration) -->
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-xl">language</span>
+<span class="font-label-caps text-label-caps">Web</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-xl">videogame_asset</span>
+<span class="font-label-caps text-label-caps">Game</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-xl">smartphone</span>
+<span class="font-label-caps text-label-caps">Mobile</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-xl">dns</span>
+<span class="font-label-caps text-label-caps">Backend</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:bg-surface-variant transition-all duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined text-xl">account_tree</span>
+<span class="font-label-caps text-label-caps">Data Pipelines</span>
+</a>
+</nav>
+<div class="mt-auto px-md space-y-sm">
+<button class="w-full flex items-center justify-center gap-xs py-sm border border-outline-variant text-primary font-label-caps text-label-caps rounded hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">search</span>
+                System Scan
+            </button>
+<div class="pt-sm border-t border-outline-variant flex justify-between">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] flex-1 flex flex-col h-screen overflow-hidden bg-background">
+<!-- TopNavBar (JSON) integrated as header for the main area -->
+<header class="w-full h-16 bg-surface border-b border-outline-variant flex justify-between items-center px-lg sticky top-0 z-30 shrink-0">
+<div class="flex items-center gap-lg h-full">
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed">ModuleStack Canary Replay</span>
+<nav class="hidden md:flex h-full items-end gap-md">
+<!-- Nav items based on JSON -->
+<a class="text-on-surface-variant pb-1 hover:text-primary-fixed transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary-fixed transition-colors" href="#">History</a>
+<a class="text-on-surface-variant pb-1 hover:text-primary-fixed transition-colors" href="#">Alerts</a>
+<a class="text-primary-fixed border-b-2 border-primary-fixed pb-1" href="#">Settings</a> <!-- Active state for Settings/Editor -->
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<!-- Search bar abstract -->
+<div class="w-64 h-8 bg-[#020617] border border-outline-variant rounded flex items-center px-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-sm">search</span>
+<input class="bg-transparent border-none text-body-md text-on-surface focus:ring-0 w-full p-0 h-full" placeholder="Search records..." type="text"/>
+</div>
+<div class="flex items-center gap-xs ml-sm text-on-surface-variant">
+<button class="p-xs hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-xs hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80"><span class="material-symbols-outlined">help_outline</span></button>
+<button class="p-xs hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+<button class="ml-sm bg-primary-container text-on-primary-container px-md py-sm rounded font-label-caps text-label-caps hover:bg-primary-fixed transition-colors">Create Replay</button>
+</div>
+</header>
+<!-- Unsaved Changes Banner -->
+<div class="w-full bg-surface-tint/10 border-b border-surface-tint py-sm px-lg flex items-center justify-center gap-sm shrink-0">
+<span class="material-symbols-outlined text-surface-tint text-sm">warning</span>
+<span class="font-data-mono text-data-mono text-surface-tint">Unsaved Changes</span>
+</div>
+<!-- Scrollable Form Area -->
+<div class="flex-1 overflow-y-auto p-xl flex justify-center">
+<div class="w-full max-w-4xl space-y-lg">
+<!-- Form Header -->
+<div class="border-b border-outline-variant pb-md flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary">Record Editor</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Configure module parameters and verification hooks.</p>
+</div>
+<div class="font-data-mono text-data-mono text-on-surface-variant">
+                        ID: <span class="text-primary">MOD-8429</span>
+</div>
+</div>
+<!-- Form Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Main Specs Section -->
+<section class="md:col-span-8 bg-[#0F172A] border border-[#1E293B] rounded p-lg space-y-md">
+<div class="flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-surface-tint text-sm">settings_applications</span>
+<h3 class="font-headline-md text-headline-md text-primary">Core Configuration</h3>
+</div>
+<!-- Module Name -->
+<div>
+<label class="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
+                                Module Name <span class="text-surface-tint">*</span>
+</label>
+<input class="w-full bg-[#020617] border border-[#1E293B] text-primary font-data-mono text-data-mono p-sm rounded focus:outline-none focus:border-tertiary-fixed focus:ring-1 focus:ring-tertiary-fixed transition-all" type="text" value="payment-gateway-v2"/>
+</div>
+<!-- Ownership & Type Row -->
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
+                                    Module Type <span class="text-surface-tint">*</span>
+</label>
+<select class="w-full bg-[#020617] border border-[#1E293B] text-primary font-body-md p-sm rounded focus:outline-none focus:border-tertiary-fixed appearance-none">
+<option value="web">Web</option>
+<option selected="" value="backend">Backend</option>
+<option value="mobile">Mobile</option>
+<option value="data">Data Pipeline</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
+                                    Ownership Boundary <span class="text-surface-tint">*</span>
+</label>
+<input class="w-full bg-[#020617] border border-error text-primary font-data-mono text-data-mono p-sm rounded focus:outline-none" type="text" value="team-finops"/>
+<p class="text-error font-body-md text-xs mt-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]">error</span>
+                                    Invalid module identifier format
+                                </p>
+</div>
+</div>
+<!-- Recovery Notes -->
+<div>
+<label class="block font-label-caps text-label-caps text-on-secondary-container mb-xs">
+                                Recovery Notes
+                            </label>
+<textarea class="w-full bg-[#020617] border border-[#1E293B] text-on-surface font-body-md p-sm rounded focus:outline-none focus:border-tertiary-fixed resize-none" rows="4">In case of failure during replay, isolate the payment queue immediately. Check logs in the EU-central cluster before attempting a soft reset.</textarea>
+</div>
+</section>
+<!-- Side Panel: Hooks & Actions -->
+<aside class="md:col-span-4 space-y-md">
+<!-- Verification Hooks -->
+<div class="bg-[#0F172A] border border-[#1E293B] rounded p-lg flex flex-col h-full">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-sm">integration_instructions</span>
+<h3 class="font-headline-md text-headline-md text-primary">Verification Hooks</h3>
+</div>
+<button class="text-surface-tint hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="space-y-sm flex-1">
+<!-- Hook Item 1 -->
+<div class="border border-[#1E293B] bg-[#020617] rounded p-xs flex justify-between items-center group hover:border-surface-variant transition-colors">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">PRE-BUILD</span>
+<span class="font-data-mono text-data-mono text-primary truncate w-32">lint_check.sh</span>
+</div>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-error transition-all">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+<!-- Hook Item 2 -->
+<div class="border border-[#1E293B] bg-[#020617] rounded p-xs flex justify-between items-center group hover:border-surface-variant transition-colors">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">POST-TEST</span>
+<span class="font-data-mono text-data-mono text-primary truncate w-32">audit_log_sync</span>
+</div>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-error transition-all">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="mt-md pt-sm border-t border-[#1E293B] text-center">
+<span class="font-data-mono text-data-mono text-on-surface-variant text-xs">2 Hooks configured</span>
+</div>
+</div>
+</aside>
+</div>
+<!-- Footer Actions -->
+<div class="flex justify-end gap-md pt-md border-t border-outline-variant">
+<button class="px-lg py-sm border border-outline-variant text-primary font-label-caps text-label-caps rounded hover:bg-surface-variant transition-colors">
+                        Cancel
+                    </button>
+<button class="px-lg py-sm bg-primary-container text-on-primary-container font-label-caps text-label-caps rounded hover:bg-primary-fixed transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">save</span>
+                        Save Record
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

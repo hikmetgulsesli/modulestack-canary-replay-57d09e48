@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insights - ModuleStack Canary Replay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#fffdff",
+                        "on-primary-container": "#736300",
+                        "tertiary-container": "#c0e6ff",
+                        "outline-variant": "#4c4733",
+                        "surface-variant": "#26364a",
+                        "secondary-fixed": "#dae2fd",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#213145",
+                        "surface": "#031427",
+                        "secondary": "#bec6e0",
+                        "on-secondary-container": "#adb4ce",
+                        "outline": "#979179",
+                        "on-tertiary-fixed": "#001e2c",
+                        "error-container": "#93000a",
+                        "tertiary": "#fefdff",
+                        "secondary-container": "#3f465c",
+                        "surface-bright": "#2a3a4f",
+                        "on-primary-fixed-variant": "#524700",
+                        "tertiary-fixed": "#c4e7ff",
+                        "primary-fixed-dim": "#e2c60f",
+                        "on-tertiary-container": "#006b91",
+                        "on-primary-fixed": "#211b00",
+                        "on-tertiary": "#00354a",
+                        "on-primary": "#393000",
+                        "primary-container": "#ffe135",
+                        "background": "#031427",
+                        "surface-container-highest": "#26364a",
+                        "inverse-surface": "#d3e4fe",
+                        "surface-container-lowest": "#000f21",
+                        "on-surface-variant": "#cec6ac",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#ffe245",
+                        "on-surface": "#d3e4fe",
+                        "surface-container-low": "#0b1c30",
+                        "on-tertiary-fixed-variant": "#004c69",
+                        "on-secondary": "#283044",
+                        "on-background": "#d3e4fe",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-tint": "#e2c60f",
+                        "surface-dim": "#031427",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-container-high": "#1b2b3f",
+                        "tertiary-fixed-dim": "#7bd0ff",
+                        "surface-container": "#102034",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#6d5e00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "gutter": "12px",
+                        "margin": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md-mobile": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md-mobile": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Scrollbar for high-density feel */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #26364a; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f465c; }
+    </style>
+</head>
+<body class="bg-[#020617] text-on-background font-body-md text-body-md antialiased overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface w-full h-16 border-b border-outline-variant dark:border-outline-variant flex justify-between items-center px-lg sticky top-0 z-50">
+<div class="flex items-center gap-md">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">ModuleStack Canary Replay</span>
+<nav class="hidden md:flex gap-lg ml-xl">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80 py-4 border-b-2 border-transparent" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80 py-4 border-b-2 border-transparent" href="#">History</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80" href="#">Insights</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80 py-4 border-b-2 border-transparent" href="#">Alerts</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors cursor-pointer active:opacity-80 py-4 border-b-2 border-transparent" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+<button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:text-primary transition-colors mr-sm">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</button>
+<button class="bg-primary-container text-[#020617] font-data-mono text-data-mono px-md py-sm rounded hover:bg-primary-fixed transition-colors flex items-center gap-xs">
+<span>Create Replay</span>
+</button>
+</div>
+</header>
+<div class="flex h-[calc(100vh-64px)] w-full">
+<!-- SideNavBar -->
+<aside class="bg-[#0F172A] border-r border-[#1E293B] fixed left-0 top-16 h-full w-[240px] flex flex-col py-md z-40 hidden md:flex">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-primary-fixed-dim">monitor_heart</span>
+<h2 class="font-headline-md text-headline-md text-primary truncate">Health Monitor</h2>
+</div>
+<p class="font-data-mono text-data-mono text-on-surface-variant text-[11px] uppercase tracking-wider">Global Status: Nominal</p>
+<div class="mt-md h-[2px] w-full bg-[#1E293B] overflow-hidden">
+<div class="h-full bg-primary-fixed-dim w-[85%] relative">
+<div class="absolute top-0 right-0 bottom-0 w-[20px] bg-white opacity-50 blur-[4px] animate-pulse"></div>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-sm flex flex-col gap-[2px]">
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-variant dark:hover:bg-surface-variant transition-all duration-200 ease-in-out text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined text-[18px]">language</span>
+                    Web
+                </a>
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-variant dark:hover:bg-surface-variant transition-all duration-200 ease-in-out text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined text-[18px]">videogame_asset</span>
+                    Game
+                </a>
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-variant dark:hover:bg-surface-variant transition-all duration-200 ease-in-out text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+                    Mobile
+                </a>
+<a class="flex items-center gap-sm px-sm py-xs bg-[#1E293B] text-primary dark:text-primary-fixed border-l-[2px] border-primary-fixed-dim rounded-r hover:bg-surface-variant dark:hover:bg-surface-variant transition-all duration-200 ease-in-out font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined text-[18px] filled text-primary-fixed-dim">dns</span>
+                    Backend
+                </a>
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-variant dark:hover:bg-surface-variant transition-all duration-200 ease-in-out text-on-surface-variant dark:text-on-surface-variant font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+                    Data Pipelines
+                </a>
+</nav>
+<div class="mt-auto px-md pb-xl pt-md border-t border-[#1E293B] flex flex-col gap-sm">
+<button class="w-full border border-[#1E293B] text-primary font-data-mono text-data-mono py-xs rounded hover:border-tertiary-fixed-dim hover:text-tertiary-fixed-dim transition-colors flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">radar</span>
+                    System Scan
+                </button>
+<div class="flex justify-between mt-sm">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[14px]">description</span> Docs
+                    </a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[14px]">support_agent</span> Support
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[240px] bg-[#020617] overflow-y-auto p-lg relative">
+<!-- Background Accent -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-fixed-dim opacity-[0.02] blur-[100px] rounded-full pointer-events-none"></div>
+<!-- Toolbar -->
+<div class="flex justify-between items-end mb-lg border-b border-[#1E293B] pb-md">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Insights: Backend</h1>
+<p class="font-data-mono text-data-mono text-on-surface-variant mt-xs">Analysis window: Last 72 hours • Aggregated across 14 clusters</p>
+</div>
+<div class="flex gap-sm">
+<button class="border border-[#1E293B] bg-[#0F172A] text-on-surface-variant font-data-mono text-data-mono px-md py-sm rounded hover:border-primary-fixed-dim hover:text-primary-fixed-dim transition-all flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">tune</span> Filter
+                    </button>
+<button class="border border-[#1E293B] bg-[#0F172A] text-primary font-data-mono text-data-mono px-md py-sm rounded hover:bg-[#1E293B] transition-all flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">download</span> Export Summary
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- KPI: Stack Health Trend (col-span-4) -->
+<div class="col-span-12 lg:col-span-4 bg-[#0F172A] border border-[#1E293B] rounded p-md flex flex-col justify-between group hover:border-primary-fixed-dim transition-colors">
+<div class="flex justify-between items-start mb-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Stack Health Trend</span>
+<div class="flex items-center gap-xs px-xs py-[2px] bg-surface-container border-l-2 border-primary-fixed-dim text-primary-fixed-dim font-data-mono text-[10px]">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +2.4%
+                        </div>
+</div>
+<div>
+<div class="font-display-lg text-display-lg text-primary mb-xs">98.4<span class="text-headline-md text-on-surface-variant">%</span></div>
+<div class="h-[40px] w-full flex items-end gap-[2px] opacity-80 group-hover:opacity-100 transition-opacity">
+<!-- Simulated Sparkline Bars -->
+<div class="w-full bg-[#1E293B] h-[40%] rounded-t-sm"></div>
+<div class="w-full bg-[#1E293B] h-[55%] rounded-t-sm"></div>
+<div class="w-full bg-[#1E293B] h-[45%] rounded-t-sm"></div>
+<div class="w-full bg-[#1E293B] h-[70%] rounded-t-sm"></div>
+<div class="w-full bg-[#1E293B] h-[60%] rounded-t-sm"></div>
+<div class="w-full bg-[#1E293B] h-[85%] rounded-t-sm"></div>
+<div class="w-full bg-[#1E293B] h-[80%] rounded-t-sm"></div>
+<div class="w-full bg-[#1E293B] h-[95%] rounded-t-sm"></div>
+<div class="w-full bg-primary-fixed-dim h-[100%] rounded-t-sm relative shadow-[0_0_10px_rgba(226,198,15,0.3)]"></div>
+</div>
+</div>
+</div>
+<!-- KPI: Failure Distribution (col-span-4) -->
+<div class="col-span-12 lg:col-span-4 bg-[#0F172A] border border-[#1E293B] rounded p-md flex flex-col justify-between group hover:border-tertiary-fixed-dim transition-colors">
+<div class="flex justify-between items-start mb-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Failure Dist.</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">pie_chart</span>
+</div>
+<div class="flex items-center gap-md">
+<!-- Simulated Ring Chart -->
+<div class="relative w-[60px] h-[60px] rounded-full border-4 border-[#1E293B] flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-4 border-error opacity-80" style="clip-path: polygon(50% 50%, 100% 0, 100% 30%, 50% 50%); transform: rotate(45deg);"></div>
+<div class="absolute inset-0 rounded-full border-4 border-tertiary-fixed-dim opacity-80" style="clip-path: polygon(50% 50%, 100% 0, 100% 100%, 0 100%, 0 0, 50% 50%); transform: rotate(135deg);"></div>
+<span class="font-data-mono text-[14px] text-primary">12</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs font-data-mono text-[11px]">
+<div class="flex justify-between items-center"><div class="flex items-center gap-xs"><div class="w-2 h-2 bg-error rounded-full"></div><span>Timeout</span></div><span class="text-on-surface-variant">4</span></div>
+<div class="flex justify-between items-center"><div class="flex items-center gap-xs"><div class="w-2 h-2 bg-tertiary-fixed-dim rounded-full"></div><span>State Mismatch</span></div><span class="text-on-surface-variant">8</span></div>
+</div>
+</div>
+</div>
+<!-- KPI: Recovery Efficiency (col-span-4) -->
+<div class="col-span-12 lg:col-span-4 bg-[#0F172A] border border-[#1E293B] rounded p-md flex flex-col justify-between group hover:border-primary-fixed-dim transition-colors">
+<div class="flex justify-between items-start mb-md">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Recovery Effic.</span>
+<div class="flex items-center gap-xs px-xs py-[2px] bg-surface-container border-l-2 border-outline text-on-surface-variant font-data-mono text-[10px]">
+<span class="material-symbols-outlined text-[12px]">trending_flat</span> 0.0%
+                        </div>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<div class="font-display-lg text-display-lg text-primary mb-xs">4.2<span class="text-headline-md text-on-surface-variant">s</span></div>
+<span class="font-data-mono text-[11px] text-on-surface-variant">Avg. TTMR</span>
+</div>
+<div class="w-[80px] h-[40px] relative overflow-hidden">
+<!-- Abstract wave/line graphic -->
+<svg class="w-full h-full stroke-primary-fixed-dim fill-none stroke-[2] opacity-70" viewbox="0 0 100 40">
+<path d="M0 20 Q 25 5, 50 20 T 100 20"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Recent Activity Timeline (col-span-8) -->
+<div class="col-span-12 lg:col-span-8 bg-[#0F172A] border border-[#1E293B] rounded p-0 overflow-hidden flex flex-col h-[400px]">
+<div class="p-md border-b border-[#1E293B] bg-[#0A101D] flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Recent Activity Events</span>
+<span class="font-data-mono text-[11px] text-tertiary-fixed-dim cursor-pointer hover:underline">View Full Log →</span>
+</div>
+<div class="flex-1 overflow-y-auto p-md pl-xl relative">
+<!-- Vertical Line -->
+<div class="absolute left-[39px] top-md bottom-md w-[1px] bg-[#1E293B]"></div>
+<div class="flex flex-col gap-lg">
+<!-- Event Item -->
+<div class="relative flex gap-md">
+<div class="absolute left-[-29px] top-[2px] w-4 h-4 rounded-full bg-[#0F172A] border-[2px] border-error flex items-center justify-center z-10 shadow-[0_0_8px_rgba(255,180,171,0.2)]"></div>
+<div class="flex-1 pb-md border-b border-[#1E293B] border-dashed last:border-0 last:pb-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h4 class="font-data-mono text-[13px] text-error font-medium">Stack Replay-42 Failed</h4>
+<span class="font-data-mono text-[11px] text-on-surface-variant">10:42:05 UTC</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[13px] line-clamp-2">State divergence detected in module 'AuthSvc' during phase 2 validation. Rollback initiated autonomously.</p>
+</div>
+</div>
+<!-- Event Item -->
+<div class="relative flex gap-md">
+<div class="absolute left-[-29px] top-[2px] w-4 h-4 rounded-full bg-[#0F172A] border-[2px] border-tertiary-fixed-dim flex items-center justify-center z-10"></div>
+<div class="flex-1 pb-md border-b border-[#1E293B] border-dashed last:border-0 last:pb-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h4 class="font-data-mono text-[13px] text-primary font-medium">Ownership Boundary Updated</h4>
+<span class="font-data-mono text-[11px] text-on-surface-variant">09:15:22 UTC</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[13px] line-clamp-2">User 'sysadmin' modified routing constraints for data-pipeline-alpha.</p>
+</div>
+</div>
+<!-- Event Item -->
+<div class="relative flex gap-md">
+<div class="absolute left-[-29px] top-[2px] w-4 h-4 rounded-full bg-[#0F172A] border-[2px] border-outline flex items-center justify-center z-10"></div>
+<div class="flex-1 pb-md border-b border-[#1E293B] border-dashed last:border-0 last:pb-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h4 class="font-data-mono text-[13px] text-on-secondary-container font-medium">Replay-41 Succeeded</h4>
+<span class="font-data-mono text-[11px] text-on-surface-variant">08:00:00 UTC</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[13px] line-clamp-2">Scheduled canary replay executed with 0 variances across 14 nodes.</p>
+</div>
+</div>
+<!-- Event Item -->
+<div class="relative flex gap-md">
+<div class="absolute left-[-29px] top-[2px] w-4 h-4 rounded-full bg-[#0F172A] border-[2px] border-outline flex items-center justify-center z-10"></div>
+<div class="flex-1 pb-md border-b border-[#1E293B] border-dashed last:border-0 last:pb-0">
+<div class="flex justify-between items-baseline mb-xs">
+<h4 class="font-data-mono text-[13px] text-on-secondary-container font-medium">Cluster Scale-Up Detected</h4>
+<span class="font-data-mono text-[11px] text-on-surface-variant">07:45:10 UTC</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-[13px] line-clamp-2">+3 nodes provisioned in region us-east-2.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Suggested Actions Panel (col-span-4) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container border border-[#1E293B] rounded p-0 overflow-hidden flex flex-col h-[400px]">
+<div class="p-md border-b border-[#1E293B] bg-[#0A101D] flex gap-sm items-center">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[18px]">lightbulb</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Suggested Actions</span>
+</div>
+<div class="flex-1 p-sm flex flex-col gap-sm overflow-y-auto">
+<!-- Hint Card -->
+<div class="bg-[#0F172A] border border-[#1E293B] border-l-2 border-l-error p-sm rounded hover:bg-[#1E293B] transition-colors cursor-pointer group">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-error text-[16px] mt-[2px]">warning</span>
+<div>
+<h5 class="font-data-mono text-[12px] text-primary mb-[2px]">Missing Recovery Notes</h5>
+<p class="font-body-md text-[12px] text-on-surface-variant leading-tight">3 backend modules lack documented recovery procedures for state mismatch errors.</p>
+<span class="inline-block mt-sm font-data-mono text-[10px] text-primary-fixed-dim opacity-0 group-hover:opacity-100 transition-opacity">Review Modules →</span>
+</div>
+</div>
+</div>
+<!-- Hint Card -->
+<div class="bg-[#0F172A] border border-[#1E293B] border-l-2 border-l-tertiary-fixed-dim p-sm rounded hover:bg-[#1E293B] transition-colors cursor-pointer group">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px] mt-[2px]">route</span>
+<div>
+<h5 class="font-data-mono text-[12px] text-primary mb-[2px]">Verify Pipeline Routing</h5>
+<p class="font-body-md text-[12px] text-on-surface-variant leading-tight">Recent ownership updates may conflict with inherited routing rules in 'alpha' cluster.</p>
+<span class="inline-block mt-sm font-data-mono text-[10px] text-primary-fixed-dim opacity-0 group-hover:opacity-100 transition-opacity">Run Diagnostics →</span>
+</div>
+</div>
+</div>
+<!-- Hint Card -->
+<div class="bg-[#0F172A] border border-[#1E293B] border-l-2 border-l-outline p-sm rounded hover:bg-[#1E293B] transition-colors cursor-pointer group">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] mt-[2px]">schedule</span>
+<div>
+<h5 class="font-data-mono text-[12px] text-primary mb-[2px]">Optimize Replay Schedule</h5>
+<p class="font-body-md text-[12px] text-on-surface-variant leading-tight">Shifting automated replays to 03:00 UTC could reduce compute contention by 14%.</p>
+<span class="inline-block mt-sm font-data-mono text-[10px] text-primary-fixed-dim opacity-0 group-hover:opacity-100 transition-opacity">Apply Suggestion →</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
