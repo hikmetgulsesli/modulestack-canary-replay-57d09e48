@@ -7,17 +7,33 @@
 // 3. Wire interactive controls through the typed actions prop
 // 4. Replace placeholder data with props/state
 
+import { useMemo } from 'react';
 import { BadgeHelp, Bell, Braces, CheckCircle2, CircleAlert, CircleHelp, CircleUserRound, FileText, Gamepad2, GitBranch, Headphones, HeartPulse, Languages, ListFilter, Network, Package, Play, RefreshCw, Search, Server, Smartphone, StickyNote, TriangleAlert, X } from "lucide-react";
+import type { RecordItem } from '../features/modulestack-canary-replay/modulestack-canary-replay.store';
 
 
 export type RecordOperationsModulestackCanaryReplayActionId = "system-scan-1" | "create-replay-2" | "notifications-3" | "help-outline-4" | "account-circle-5" | "retry-load-6" | "create-replay-7" | "close-8" | "view-logs-9" | "retry-10" | "web-1" | "game-2" | "mobile-3" | "backend-4" | "data-pipelines-5" | "docs-6" | "support-7" | "dashboard-8" | "history-9" | "alerts-10" | "settings-11";
 
 export interface RecordOperationsModulestackCanaryReplayProps {
   actions?: Partial<Record<RecordOperationsModulestackCanaryReplayActionId, () => void>>;
+  records?: RecordItem[];
+  searchQuery?: string;
+  onSearchQueryChange?: (value: string) => void;
+  onSelectRecord?: (id: string) => void;
 
 }
 
-export function RecordOperationsModulestackCanaryReplay({ actions }: RecordOperationsModulestackCanaryReplayProps) {
+export function RecordOperationsModulestackCanaryReplay({ actions, records = [], searchQuery = '', onSearchQueryChange, onSelectRecord }: RecordOperationsModulestackCanaryReplayProps) {
+  const filteredRecords = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return records;
+    return records.filter((record) =>
+      record.title.toLowerCase().includes(query) ||
+      record.module.toLowerCase().includes(query) ||
+      record.id.toLowerCase().includes(query)
+    );
+  }, [records, searchQuery]);
+
   return (
     <>
       {/* SideNavBar (Predicted Component) */}
@@ -96,7 +112,7 @@ export function RecordOperationsModulestackCanaryReplay({ actions }: RecordOpera
       {/* Search Bar */}
       <div className="relative hidden md:block w-64">
       <Search className="absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" aria-hidden={true} focusable="false" />
-      <input className="w-full bg-surface-container border border-outline-variant text-on-surface rounded pl-[36px] pr-sm py-1.5 focus:outline-none focus:border-tertiary-fixed focus:ring-1 focus:ring-tertiary-fixed transition-colors text-body-md font-body-md placeholder:text-on-surface-variant" placeholder="Search records..." type="text" />
+      <input className="w-full bg-surface-container border border-outline-variant text-on-surface rounded pl-[36px] pr-sm py-1.5 focus:outline-none focus:border-tertiary-fixed focus:ring-1 focus:ring-tertiary-fixed transition-colors text-body-md font-body-md placeholder:text-on-surface-variant" placeholder="Search records..." type="text" value={searchQuery} onChange={(event) => onSearchQueryChange?.(event.target.value)} />
       </div>
       {/* Primary Action */}
       <button className="bg-primary-container text-on-primary-fixed font-body-md text-body-md px-md py-1.5 rounded hover:bg-primary-fixed transition-colors whitespace-nowrap hidden sm:block border border-transparent" type="button" data-action-id="create-replay-2" onClick={actions?.["create-replay-2"]}>
@@ -196,7 +212,7 @@ export function RecordOperationsModulestackCanaryReplay({ actions }: RecordOpera
       <option>Deploy</option>
       </select>
       </div>
-      <span className="font-data-mono text-data-mono text-on-surface-variant text-[11px] mr-xs">1,402 Records</span>
+      <span className="font-data-mono text-data-mono text-on-surface-variant text-[11px] mr-xs">{filteredRecords.length} Records</span>
       </div>
       {/* Data Table */}
       <div className="flex-1 overflow-auto">
@@ -211,71 +227,30 @@ export function RecordOperationsModulestackCanaryReplay({ actions }: RecordOpera
       </tr>
       </thead>
       <tbody className="font-data-mono text-data-mono divide-y divide-outline-variant">
-      {/* Row 1 (Active/Selected State) */}
-      <tr className="bg-secondary-container hover:bg-surface-variant cursor-pointer transition-colors relative">
-      <td className="px-md py-sm text-primary flex items-center gap-xs">
-      <div className="w-1 h-full absolute left-0 top-0 bg-primary-fixed"></div>
-      <Package className="text-[16px] text-primary-fixed" aria-hidden={true} focusable="false" />
-                                              AUTH_GATEWAY_v2.4
-                                          </td>
-      <td className="px-md py-sm text-on-surface">SYS_ADMIN</td>
-      <td className="px-md py-sm">
-      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 border-l-2 border-error bg-surface text-on-surface rounded-r">
-      <span className="w-1.5 h-1.5 rounded-full bg-error"></span>
-                                                  Test Failed
-                                              </div>
-      </td>
-      <td className="px-md py-sm text-on-surface-variant truncate max-w-[150px]">ERR_TOKEN_EXPIRED_TIMEOUT</td>
-      <td className="px-md py-sm text-right text-on-surface-variant">2m ago</td>
-      </tr>
-      {/* Row 2 */}
-      <tr className="hover:bg-surface-variant cursor-pointer transition-colors">
-      <td className="px-md py-sm text-primary flex items-center gap-xs">
-      <Server className="text-[16px] text-on-surface-variant" aria-hidden={true} focusable="false" />
-                                              USER_DB_SHARD_01
-                                          </td>
-      <td className="px-md py-sm text-on-surface">DBA_TEAM</td>
-      <td className="px-md py-sm">
-      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 border-l-2 border-primary-fixed-dim bg-surface text-on-surface rounded-r">
-      <span className="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim"></span>
-                                                  Deploying
-                                              </div>
-      </td>
-      <td className="px-md py-sm text-on-surface-variant">-</td>
-      <td className="px-md py-sm text-right text-on-surface-variant">15m ago</td>
-      </tr>
-      {/* Row 3 */}
-      <tr className="hover:bg-surface-variant cursor-pointer transition-colors">
-      <td className="px-md py-sm text-primary flex items-center gap-xs">
-      <Braces className="text-[16px] text-on-surface-variant" aria-hidden={true} focusable="false" />
-                                              PAYMENT_API_STRIPE
-                                          </td>
-      <td className="px-md py-sm text-on-surface">FIN_OPS</td>
-      <td className="px-md py-sm">
-      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 border-l-2 border-surface-variant bg-surface text-on-surface rounded-r">
-      <span className="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
-                                                  Building
-                                              </div>
-      </td>
-      <td className="px-md py-sm text-on-surface-variant">-</td>
-      <td className="px-md py-sm text-right text-on-surface-variant">1h ago</td>
-      </tr>
-      {/* Row 4 */}
-      <tr className="hover:bg-surface-variant cursor-pointer transition-colors">
-      <td className="px-md py-sm text-primary flex items-center gap-xs">
-      <Network className="text-[16px] text-on-surface-variant" aria-hidden={true} focusable="false" />
-                                              ROUTER_MESH_WEST
-                                          </td>
-      <td className="px-md py-sm text-on-surface">NET_OPS</td>
-      <td className="px-md py-sm">
-      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 border-l-2 border-primary-fixed-dim bg-surface text-on-surface rounded-r">
-      <span className="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim"></span>
-                                                  Healthy
-                                              </div>
-      </td>
-      <td className="px-md py-sm text-on-surface-variant">-</td>
-      <td className="px-md py-sm text-right text-on-surface-variant">3h ago</td>
-      </tr>
+      {filteredRecords.length === 0 && (
+        <tr>
+          <td colSpan={5} className="px-md py-lg text-center text-on-surface-variant">
+            No records match your search.
+          </td>
+        </tr>
+      )}
+      {filteredRecords.map((record) => (
+        <tr key={record.id} data-record-id={record.id} className="hover:bg-surface-variant cursor-pointer transition-colors" onClick={() => onSelectRecord?.(record.id)}>
+          <td className="px-md py-sm text-primary flex items-center gap-xs">
+            <Package className="text-[16px] text-on-surface-variant" aria-hidden={true} focusable="false" />
+            {record.title}
+          </td>
+          <td className="px-md py-sm text-on-surface">{record.module}</td>
+          <td className="px-md py-sm">
+            <div className={`inline-flex items-center gap-1.5 px-2 py-0.5 border-l-2 ${record.status === 'active' ? 'border-primary-fixed-dim bg-surface text-on-surface' : 'border-surface-variant bg-surface text-on-surface'} rounded-r`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${record.status === 'active' ? 'bg-primary-fixed-dim' : 'bg-surface-variant'}`}></span>
+              {record.status === 'active' ? 'Active' : 'Draft'}
+            </div>
+          </td>
+          <td className="px-md py-sm text-on-surface-variant truncate max-w-[150px]">-</td>
+          <td className="px-md py-sm text-right text-on-surface-variant">{new Date(record.createdAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'UTC' })}</td>
+        </tr>
+      ))}
       </tbody>
       </table>
       </div>
