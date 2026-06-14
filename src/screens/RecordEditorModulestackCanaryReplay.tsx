@@ -32,6 +32,8 @@ export function RecordEditorModulestackCanaryReplay({ actions, record, onSaveRec
       setTitle(record.title);
       setModule(record.module);
     }
+    setOwner('team-finops');
+    setNotes('In case of failure during replay, isolate the payment queue immediately. Check logs in the EU-central cluster before attempting a soft reset.');
   }, [record?.id]);
 
   const handleSave = () => {

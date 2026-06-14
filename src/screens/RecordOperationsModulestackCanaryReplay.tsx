@@ -248,7 +248,7 @@ export function RecordOperationsModulestackCanaryReplay({ actions, records = [],
             </div>
           </td>
           <td className="px-md py-sm text-on-surface-variant truncate max-w-[150px]">-</td>
-          <td className="px-md py-sm text-right text-on-surface-variant">{new Date(record.createdAt).toLocaleTimeString()}</td>
+          <td className="px-md py-sm text-right text-on-surface-variant">{new Date(record.createdAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'UTC' })}</td>
         </tr>
       ))}
       </tbody>

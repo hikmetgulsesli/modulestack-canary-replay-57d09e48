@@ -87,8 +87,7 @@ export default function App() {
 
   const draftRecord = useMemo(
     () => selectedRecord ?? buildRecord(state),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [state.selectedRecordId, state.preferences.defaultModule],
+    [selectedRecord, state.preferences.defaultModule],
   );
 
   const recordOperationsActions: Partial<
